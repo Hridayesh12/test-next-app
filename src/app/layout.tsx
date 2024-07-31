@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { GetServerSideProps, Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -13,10 +13,14 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
+  currentRoute: string;
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <div>Current Route</div>
+      </body>
     </html>
   );
 }
